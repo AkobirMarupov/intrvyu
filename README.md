@@ -13,6 +13,15 @@
 
 2. Python’da mutable va immutable obyektlar nima? Misollar bilan tushuntiring.
 
-🔹 Mutable obyektlar – qiymatini o‘zgartirish mumkin bo‘lganlar (list, dict, set),
+    🔹 Mutable obyektlar – qiymatini o‘zgartirish mumkin bo‘lganlar (list, dict, set),
 
-🔹 Immutable obyektlar – qiymatini o‘zgartirib bo‘lmaydiganlar (int, float, str, tuple).
+    🔹 Immutable obyektlar – qiymatini o‘zgartirib bo‘lmaydiganlar (int, float, str, tuple).
+
+3. Nima uchun tuple immutable hisoblanadi lekin ichida mutable bo'lsa o'zgartirib bo'ladimi?
+
+    Ha tuple immutable hisoblanadi lekin tuple ning ichida mutable bo'lsa uni uzgartirsa bo'ladi.
+    ```
+    a = ([1,2,3], 5)
+    a[0].appemd(5)
+    print(a)
+    ```
