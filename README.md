@@ -25,3 +25,49 @@
     a[0].appemd(5)
     print(a)
     ```
+
+4. += operatori immutable va mutable obyektlariga nisbatan qanday ishlaydi?
+
+    list += [...] - o'zgaradi (in-palce)
+    str += ... - yangi string yaratadi
+    ```
+    lst = [1]
+    lst += [2]
+
+    s = "a"
+    s += "b"
+    ```
+
+5. Nima uchun id() funksiyasi immutable obyektlar bilan ishlaganda o'zgaradi?
+
+    immutable obyekt ustida uzgarish qilinsa, Python yangi obyekt yaratadi.
+    ```
+    a = 'salom'
+    print(id(a))
+    a += 'hello'
+    print(id(a))
+    ```
+
+6. List Dictionary da kalit qiymati sifatida kela oladimi?
+
+    list mutable, shuninguchun u dict kalit sifatida ishlamaydi.
+    ```
+    my_dict = {[1, 4]: 'value'} # ❌ TypeError
+    ```
+
+7. copy() va deepcopy() mutable obyektlar bilan qanday farqlandai?
+
+    copy() - sirtqi nusxa
+    deepcopy() - chuqur nusxa (nested obyebtlar bilan ishlaydi)
+    ```
+
+8. str obyektini 'zgartirish uchun qanday  yondashuv ishlatiladi?
+
+    str immutable, lekin join, replace yordamida yangi str yaratamiz.
+    ```
+    s = 'hello'
+    s = s.replace('h', 'H')
+    print(s)
+    ```
+
+9. 
