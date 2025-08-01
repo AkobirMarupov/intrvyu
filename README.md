@@ -59,7 +59,6 @@
 
     copy() - sirtqi nusxa
     deepcopy() - chuqur nusxa (nested obyebtlar bilan ishlaydi)
-    ```
 
 8. str obyektini 'zgartirish uchun qanday  yondashuv ishlatiladi?
 
@@ -182,4 +181,91 @@
 
     Yani - ORM yaratganda (Model klasslarida), DRY prinsipida custom field validation qilish uchun.
 
-21. 
+21. Matn metodlaridan upper(), lower(), replace(), strip() qanday ishlatiladi?
+
+    ✅ upper() - matinni katta harflarga utkazib beradi.
+
+    ✅ lover() - matinni kichik harflarga utkazib beradi.
+
+    ✅ replace(old, new) - eski qismni yangisiga almashtiradi.
+
+    ✅ stript() - bush joylarni olib tashledi.
+
+22. if ichida yana if (nested if) yozish qachon kerak bo`ladi?
+
+    ✅ Nested if faqat birinchi shart True bo'lgandagina ikkinchi shartni tekshirish kerak bo'lganda ishlatiladi.Mahsulot mavjud bo‘lsa va chegirma mavjud bo‘lsa, foydalanuvchiga narxni ko‘rsatish:
+
+23.  Boolean qiymatlar va if qanday ishlaydi?
+
+    ✅ Javob: Python’da if sharti True yoki False ga baholanadi. Quyidagi qiymatlar False sifatida qabul qilinadi: 0, 0.0, None, False, bo‘sh string '', bo‘sh ro‘yxat [], bo‘sh dict {}. Boshqa barcha qiymatlar True hisoblanadi.
+
+24. if shartida qiymat to'g'ridan to'g'ri baholash (truthy/falsy) afzalliklari va havflari qanday?
+
+    ✅ Bunday yondashuv kodni qisqa qiladi, ammo qiymat False haholansa, lekin semantik jihatdan bu False emas bo'lishi mumkin. BU xatolik manbai bo'lladi
+
+    misol
+    ```
+    users = []
+    if not users:
+        print("Foydalanuvchilar yo‘q")
+    ```
+
+25. Ternary operator(x if condition else y) qanday ishlaydi va qachon ishlatilishi kerak?
+
+    ✅ BU qisqa if else ko'rinishidir. Shartga qarab qiymat tanlanadi. KIchik va o'qilishi oson holatlarda foydalaniladi.
+
+    misol:
+    ```
+    age = 40
+    status = "yosh" if age < 30 else "katta"
+    print(status) 
+
+    ```
+
+26. elif dan kop foydalanganda kod o'qilishi pasayadimi yani Alternativa bormi?
+
+    ✅ Ha juda kop elif kodni o'qilishini qiyinlashtiradi. Altirnative sifatida match-case(Python.3.10+) dict-based dispatch ishlatiladi.
+
+    midol
+    ```
+    def handle_status(code):
+        return {
+            200:'ok',
+            404:'Not Found',
+            500:'Server ERROR',
+        }.get(code, 'Unknown')
+        ```
+
+27. match-case konstruksiyasi qanday ishlaydi va 'if va elif' ga nisbatan afzalligi qanday?
+
+    ✅ match-case Python 3.10 dan boshlab kiritilgan. Bu 'switch-case' ga o'xshash. Yaxshi strukturaviy yondashuv beradi, ayniqsa kop holatlarni tahlil qilish kerak bo`lsa.
+
+    misol:
+    ```
+    status_code = 404
+    match status_code:
+        case 200:
+            print("OK")
+        case 404:
+            print("Topilmadi")
+        case _:
+            print("Noma’lum holat")
+
+    ```
+
+28. if blokida bajarilayotgan kodda return, break, continue mavjud bo‘lsa, bu qanday ta’sir qiladi?
+
+    ✅ Javob: Bu operatorlar if ichidagi blokdan keyingi kodni bajarilishini to‘xtatadi. return — funksiya tugaydi, break — sikldan chiqadi, continue — sikl keyingi iteratsiyasiga o‘tadi.
+
+    Misol:
+    ```
+    for i in range(5):
+        if i == 2:
+            continue
+        print(i)
+    ```
+
+29. Savol: if blok ichida try-except ishlatishning afzalliklari?
+
+    ✅ Javob: Dastur shart bajarilayotgan holatlarda xatolik yuz bersa, try-except blok bilan bu holatni boshqarish imkonini beradi va ilovani qulab tushishdan saqlaydi.
+
